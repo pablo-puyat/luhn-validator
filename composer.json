@@ -1,0 +1,19 @@
+{
+    "name": "taprice/luhn-validator",
+    "description": "A package that will verify athe validity of a number by applying the Luhn Checksum.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Thomas Price",
+            "email": "tom@simplyphp.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "taprice": "src/"
+        }
+    }
+}
