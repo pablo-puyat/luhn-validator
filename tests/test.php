@@ -26,8 +26,9 @@ try {
     LuhnValidator::isValid('abc123def');
     echo "Test 4 result: fail\n";
 } catch (Exception $e) {
-    if ($e->getMessage() === "Invalid input provided")
-    echo "Test 4 result: pass\n";
+    if ($e->getMessage() === "Invalid input provided") {
+        echo "Test 4 result: pass\n";
+    }
 }
 
 // Test handling invalid input - numeric strings that are floats or are not integers should throw execption
@@ -35,6 +36,7 @@ try {
     LuhnValidator::isValid('79927398713.53');
     echo "Test 5 result: failed\n";
 } catch (Exception $e) {
-    if ($e->getMessage() === "Invalid input provided")
+    if ($e->getMessage() === "Invalid input provided") {
         echo "Test 5 result: pass\n";
+    }
 }

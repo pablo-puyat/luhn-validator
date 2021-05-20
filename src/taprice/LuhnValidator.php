@@ -2,10 +2,15 @@
 
 namespace taprice;
 
+use Exception;
+
 class LuhnValidator
 {
     public static function isValid($number): bool
     {
+        if (!self::isValidInput($number)) {
+            throw new Exception("Invalid input provided");
+        }
         // convert the number to an array because we will be dealing with each digit as a separate piece
         $numberToCheck = str_split($number);
 
@@ -33,7 +38,18 @@ class LuhnValidator
     }
 
 
-    private function validateInput($input): bool
+    private static function isValidInput($input): bool
     {
+        // input must be an integer. no need for anymore tests if it's an integer
+        if (is_int($input)) {
+            return true;
+        }
+
+        // check for any non numeric characters if it's a string.
+        if (is_string($input) && preg_match("/[^0-9]/", $input) === 0) {
+            return true;
+        }
+
+        return false;
     }
 }
